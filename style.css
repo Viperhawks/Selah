@@ -1,0 +1,88 @@
+/* =====================
+   COLOR VARIABLES
+===================== */
+:root {
+  --background: #f6f4ef;
+  --text: #2b2b2b;
+  --card: #ffffff;
+  --subtext: #6a6a6a;
+}
+
+/* Dark Mode */
+body.dark {
+  --background: #121212;
+  --text: #eaeaea;
+  --card: #1e1e1e;
+  --subtext: #aaaaaa;
+}
+
+/* =====================
+   BASE STYLES
+===================== */
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: var(--background);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* =====================
+   HEADER
+===================== */
+header h1 {
+  font-size: 42px;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  color: var(--subtext);
+  margin-bottom: 20px;
+}
+
+/* Dark mode button */
+#modeToggle {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* =====================
+   VERSE CARD
+===================== */
+.card {
+  background: var(--card);
+  padding: 36px;
+  border-radius: 16px;
+  margin-top: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.verse {
+  font-size: 21px;
+  line-height: 1.7;
+}
+
+.reference {
+  margin-top: 16px;
+  font-weight: bold;
+  color: var(--subtext);
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  margin-top: 45px;
+  font-size: 13px;
+  color: var(--subtext);
+}
