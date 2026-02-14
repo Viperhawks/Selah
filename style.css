@@ -83,3 +83,57 @@ footer {
   font-size: 0.8rem;
   opacity: 0.6;
 }
+.read-btn,
+.home-link {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 20px;
+  border: 1px solid var(--accent);
+  text-decoration: none;
+  color: var(--text);
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.read-btn:hover,
+.home-link:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.book-list {
+  margin: 30px 0;
+}
+
+.book-list button {
+  margin: 6px;
+  padding: 8px 14px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--text);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.book-list button:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.chapter-box {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+}
+
+/* Holy Fade Animation */
+.fade-in {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
