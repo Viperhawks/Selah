@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Selah — Holy Bible</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>SELAH</h1>
+  <p class="tagline">Holy Bible</p>
+  <a href="index.html" class="home-link">Home</a>
+</header>
+
+<main class="bible-container">
+  <h2>Select a Book</h2>
+
+  <div class="book-list">
+    <button onclick="loadBook('Genesis')">Genesis</button>
+    <button onclick="loadBook('Exodus')">Exodus</button>
+    <button onclick="loadBook('Psalms')">Psalms</button>
+    <button onclick="loadBook('Proverbs')">Proverbs</button>
+    <button onclick="loadBook('Matthew')">Matthew</button>
+    <button onclick="loadBook('John')">John</button>
+    <button onclick="loadBook('Romans')">Romans</button>
+    <button onclick="loadBook('Revelation')">Revelation</button>
+  </div>
+
+  <div class="chapter-box">
+    <h3 id="chapterTitle"></h3>
+    <p id="chapterContent">Select a book to read.</p>
+  </div>
+</main>
+
+<script>
+function loadBook(book) {
+  document.getElementById("chapterTitle").textContent = book + " 1";
+  
+  const sampleText = {
+    Genesis: "In the beginning God created the heaven and the earth.",
+    Exodus: "Now these are the names of the children of Israel...",
+    Psalms: "Blessed is the man that walketh not in the counsel of the ungodly.",
+    Proverbs: "The proverbs of Solomon the son of David, king of Israel.",
+    Matthew: "The book of the generation of Jesus Christ...",
+    John: "In the beginning was the Word, and the Word was with God.",
+    Romans: "Paul, a servant of Jesus Christ, called to be an apostle.",
+    Revelation: "The Revelation of Jesus Christ, which God gave unto him."
+  };
+
+  document.getElementById("chapterContent").textContent =
+    sampleText[book] || "Scripture coming soon.";
+}
+</script>
+
+</body>
+</html>
