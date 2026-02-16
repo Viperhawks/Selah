@@ -33,19 +33,36 @@ function loadSelected() {
 
 // Fetch chapter
 function loadChapter(reference) {
-  fetch(`https://bible-api.com/${encodeURIComponent(reference)}`)
-    .then(res => res.json())
+  const url = "https://bible-api.com/" + encodeURIComponent(reference);
+
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network error");
+      }
+      return response.json();
+    })
     .then(data => {
+      if (!data.verses) {
+        throw new Error("No verses found");
+      }
+
       document.getElementById("chapterTitle").textContent = data.reference;
       const contentDiv = document.getElementById("chapterContent");
       contentDiv.innerHTML = "";
 
       data.verses.forEach(v => {
         const verse = document.createElement("p");
-        verse.innerHTML = `<strong>${v.verse}</strong> ${v.text}
-          <button onclick="saveFavorite('${data.reference} - ${v.verse}')">❤️</button>`;
+        verse.innerHTML =
+          "<strong>" + v.verse + "</strong> " + v.text +
+          " <button onclick=\"saveFavorite('" + data.reference + " - " + v.verse + "')\">❤️</button>";
         contentDiv.appendChild(verse);
       });
+    })
+    .catch(error => {
+      document.getElementById("chapterContent").textContent =
+        "Unable to load chapter. Please try again.";
+      console.error("Error:", error);
     });
 }
 
