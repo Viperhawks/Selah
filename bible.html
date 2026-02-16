@@ -24,14 +24,28 @@
     <button onclick="searchVerse()">Search</button>
   </div>
 
-  <h2>Select a Book</h2>
+  <h2>Select Book & Chapter</h2>
 
-  <div class="book-list" id="bookList"></div>
+  <div class="selector-box">
+    <select id="bookSelect"></select>
+    <input type="number" id="chapterNumber" min="1" value="1">
+    <button onclick="loadSelected()">Load</button>
+  </div>
 
   <div class="chapter-box">
     <h3 id="chapterTitle"></h3>
-    <p id="chapterContent">Select a book or search a verse.</p>
+    <div id="chapterContent">Select a book and chapter.</div>
   </div>
+
+  <h2>❤️ Saved Verses</h2>
+  <div id="favorites"></div>
+
+  <h2>✍ Devotionals (Admin)</h2>
+  <div class="admin-box">
+    <textarea id="devotionalInput" placeholder="Write devotional..."></textarea>
+    <button onclick="saveDevotional()">Save Devotional</button>
+  </div>
+  <div id="devotionalList"></div>
 
 </main>
 
