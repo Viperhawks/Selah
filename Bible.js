@@ -33,7 +33,7 @@ function loadSelected() {
 
 // Fetch chapter
 function loadChapter(reference) {
-  fetch(`https://bible-api.com/${reference}`)
+  fetch(`https://bible-api.com/${encodeURIComponent(reference)}`)
     .then(res => res.json())
     .then(data => {
       document.getElementById("chapterTitle").textContent = data.reference;
@@ -54,8 +54,8 @@ function searchVerse() {
   const input = document.getElementById("searchInput").value;
   if (!input) return;
   loadChapter(input);
-}
-
+} 
+fetch(`https://bible-api.com/${encodeURIComponent(input)}`)
 // Save favorites
 function saveFavorite(text) {
   let saved = JSON.parse(localStorage.getItem("favorites")) || [];
