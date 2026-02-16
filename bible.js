@@ -56,50 +56,40 @@ function searchVerse() {
 
   fetch(`https://bible-api.com/${encodeURIComponent(input)}`)
 }
-// Save favorites
-function saveFavorite(text) {
-  let saved = JSON.parse(localStorage.getItem("favorites")) || [];
-  saved.push(text);
-  localStorage.setItem("favorites", JSON.stringify(saved));
-  displayFavorites();
+function searchVerse() {
+  const input = document.getElementById("searchInput").value.trim();
+  if (!input) {
+    alert("Please enter a verse like John 3:16");
+    return;
+  }
+
+  const url = "https://bible-api.com/" + encodeURIComponent(input);
+
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (!data.verses) {
+        throw new Error("Verse not found");
+      }
+
+      document.getElementById("chapterTitle").textContent = data.reference;
+      const contentDiv = document.getElementById("chapterContent");
+      contentDiv.innerHTML = "";
+
+      data.verses.forEach(v => {
+        const verse = document.createElement("p");
+        verse.innerHTML = "<strong>" + v.verse + "</strong> " + v.text;
+        contentDiv.appendChild(verse);
+      });
+    })
+    .catch(error => {
+      document.getElementById("chapterContent").textContent =
+        "Verse not found. Try format like John 3:16";
+      console.error("Error:", error);
+    });
 }
-
-// Display favorites
-function displayFavorites() {
-  const saved = JSON.parse(localStorage.getItem("favorites")) || [];
-  const favDiv = document.getElementById("favorites");
-  favDiv.innerHTML = "";
-  saved.forEach(v => {
-    const p = document.createElement("p");
-    p.textContent = v;
-    favDiv.appendChild(p);
-  });
-}
-
-displayFavorites();
-
-// Devotionals
-function saveDevotional() {
-  const text = document.getElementById("devotionalInput").value;
-  if (!text) return;
-
-  let devos = JSON.parse(localStorage.getItem("devotionals")) || [];
-  devos.push(text);
-  localStorage.setItem("devotionals", JSON.stringify(devos));
-
-  document.getElementById("devotionalInput").value = "";
-  displayDevotionals();
-}
-
-function displayDevotionals() {
-  const devos = JSON.parse(localStorage.getItem("devotionals")) || [];
-  const list = document.getElementById("devotionalList");
-  list.innerHTML = "";
-  devos.forEach(d => {
-    const p = document.createElement("p");
-    p.textContent = d;
-    list.appendChild(p);
-  });
-}
-
-displayDevotionals();
