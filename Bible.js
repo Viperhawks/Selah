@@ -52,10 +52,8 @@ function loadChapter(reference) {
 // Search verse
 function searchVerse() {
   const input = document.getElementById("searchInput").value;
-  if (!input) return;
-  loadChapter(input);
-} 
-fetch(`https://bible-api.com/${encodeURIComponent(input)}`)
+  if (!input);
+}
 // Save favorites
 function saveFavorite(text) {
   let saved = JSON.parse(localStorage.getItem("favorites")) || [];
