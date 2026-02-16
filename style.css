@@ -214,21 +214,3 @@ footer {
   border-radius: 5px;
   cursor: pointer;
 }
-.hero-image {
-  max-width: 100%;
-  margin-bottom: 30px;
-}
-
-.hero-image img {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  transition: 0.4s ease;
-}
-
-/* Dark mode adjustment */
-body.dark .hero-image img {
-  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-}
