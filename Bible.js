@@ -53,6 +53,8 @@ function loadChapter(reference) {
 function searchVerse() {
   const input = document.getElementById("searchInput").value;
   if (!input);
+
+  fetch(`https://bible-api.com/${encodeURIComponent(input)}`)
 }
 // Save favorites
 function saveFavorite(text) {
