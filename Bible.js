@@ -15,42 +15,91 @@ const books = [
 "Jude","Revelation"
 ];
 
-const bookList = document.getElementById("bookList");
-
+// Populate dropdown
+const bookSelect = document.getElementById("bookSelect");
 books.forEach(book => {
-  const btn = document.createElement("button");
-  btn.textContent = book;
-  btn.onclick = () => loadChapter(book + " 1");
-  bookList.appendChild(btn);
+  const option = document.createElement("option");
+  option.value = book;
+  option.textContent = book;
+  bookSelect.appendChild(option);
 });
 
+// Load selected book + chapter
+function loadSelected() {
+  const book = bookSelect.value;
+  const chapter = document.getElementById("chapterNumber").value;
+  loadChapter(book + " " + chapter);
+}
+
+// Fetch chapter
 function loadChapter(reference) {
   fetch(`https://bible-api.com/${reference}`)
     .then(res => res.json())
     .then(data => {
       document.getElementById("chapterTitle").textContent = data.reference;
-      document.getElementById("chapterContent").textContent =
-        data.verses.map(v => v.text).join(" ");
-    })
-    .catch(() => {
-      document.getElementById("chapterContent").textContent =
-        "Unable to load Scripture. Please try again.";
+      const contentDiv = document.getElementById("chapterContent");
+      contentDiv.innerHTML = "";
+
+      data.verses.forEach(v => {
+        const verse = document.createElement("p");
+        verse.innerHTML = `<strong>${v.verse}</strong> ${v.text}
+          <button onclick="saveFavorite('${data.reference} - ${v.verse}')">❤️</button>`;
+        contentDiv.appendChild(verse);
+      });
     });
 }
 
+// Search verse
 function searchVerse() {
   const input = document.getElementById("searchInput").value;
   if (!input) return;
-
-  fetch(`https://bible-api.com/${input}`)
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("chapterTitle").textContent = data.reference;
-      document.getElementById("chapterContent").textContent =
-        data.verses.map(v => v.text).join(" ");
-    })
-    .catch(() => {
-      document.getElementById("chapterContent").textContent =
-        "Verse not found. Try format like John 3:16";
-    });
+  loadChapter(input);
 }
+
+// Save favorites
+function saveFavorite(text) {
+  let saved = JSON.parse(localStorage.getItem("favorites")) || [];
+  saved.push(text);
+  localStorage.setItem("favorites", JSON.stringify(saved));
+  displayFavorites();
+}
+
+// Display favorites
+function displayFavorites() {
+  const saved = JSON.parse(localStorage.getItem("favorites")) || [];
+  const favDiv = document.getElementById("favorites");
+  favDiv.innerHTML = "";
+  saved.forEach(v => {
+    const p = document.createElement("p");
+    p.textContent = v;
+    favDiv.appendChild(p);
+  });
+}
+
+displayFavorites();
+
+// Devotionals
+function saveDevotional() {
+  const text = document.getElementById("devotionalInput").value;
+  if (!text) return;
+
+  let devos = JSON.parse(localStorage.getItem("devotionals")) || [];
+  devos.push(text);
+  localStorage.setItem("devotionals", JSON.stringify(devos));
+
+  document.getElementById("devotionalInput").value = "";
+  displayDevotionals();
+}
+
+function displayDevotionals() {
+  const devos = JSON.parse(localStorage.getItem("devotionals")) || [];
+  const list = document.getElementById("devotionalList");
+  list.innerHTML = "";
+  devos.forEach(d => {
+    const p = document.createElement("p");
+    p.textContent = d;
+    list.appendChild(p);
+  });
+}
+
+displayDevotionals();
