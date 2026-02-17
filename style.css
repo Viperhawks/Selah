@@ -214,3 +214,25 @@ footer {
   border-radius: 5px;
   cursor: pointer;
 }
+.news-container {
+  max-width: 700px;
+  margin: 50px auto;
+}
+
+.news-card {
+  border: 1px solid var(--accent);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.news-date {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
