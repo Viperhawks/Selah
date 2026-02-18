@@ -291,3 +291,31 @@ header {
 header.scrolled {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+/* ===== Cross Logo ===== */
+
+.logo-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.cross {
+  font-size: 1.8rem;
+  color: var(--accent);
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Soft Holy Glow Animation */
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px rgba(201,162,77,0.3);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(201,162,77,0.7);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(201,162,77,0.3);
+  }
+}
