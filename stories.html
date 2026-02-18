@@ -71,34 +71,34 @@
   </nav>
 </header>
 
-<div class="container">
+  <div class="container">
+  <div class="story" id="dailyStory"></div>
+</div>
 
-  <div class="story">
-    <h2>The Creation</h2>
-    <p>
-      In the beginning God created the heavens and the earth. 
-      Light overcame darkness, and life began by His Word. 
-      (Genesis 1)
-    </p>
-  </div>
+<script>
+const stories = [
+  {
+    title: "The Creation",
+    content: "In the beginning God created the heavens and the earth. Light overcame darkness. (Genesis 1)"
+  },
+  {
+    title: "David and Goliath",
+    content: "With faith in the Lord, David defeated the giant. Faith is greater than fear. (1 Samuel 17)"
+  },
+  {
+    title: "The Good Shepherd",
+    content: "Jesus said, 'I am the good shepherd.' (John 10:11)"
+  }
+];
 
-  <div class="story">
-    <h2>David and Goliath</h2>
-    <p>
-      With faith in the Lord, young David defeated the giant Goliath.
-      Faith is greater than fear.
-      (1 Samuel 17)
-    </p>
-  </div>
+const today = new Date().getDate();
+const storyIndex = today % stories.length;
 
-  <div class="story">
-    <h2>The Good Shepherd</h2>
-    <p>
-      Jesus said, “I am the good shepherd. The good shepherd lays down His life for the sheep.”
-      (John 10:11)
-    </p>
-  </div>
-
+document.getElementById("dailyStory").innerHTML = `
+  <h2>${stories[storyIndex].title}</h2>
+  <p>${stories[storyIndex].content}</p>
+`;
+</script>
 </div>
 
 <footer>
