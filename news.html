@@ -20,17 +20,31 @@
 
   <h2>Latest News</h2>
 
-  <div class="news-card">
-    <h3>Global Prayer Gathering</h3>
-    <p>Christians across nations gathered in prayer for peace and revival.</p>
-    <span class="news-date">February 2026</span>
-  </div>
+  <div class="news-card" id="dailyNews"></div>
 
-  <div class="news-card">
-    <h3>Bible Distribution Reaches Millions</h3>
-    <p>Organizations report record Bible distribution in developing countries.</p>
-    <span class="news-date">February 2026</span>
-  </div>
+<script>
+const newsItems = [
+  {
+    title: "Global Prayer Movement",
+    content: "Churches worldwide unite in prayer for revival."
+  },
+  {
+    title: "Bible Distribution Expands",
+    content: "Millions receive free Bibles in outreach programs."
+  },
+  {
+    title: "Youth Faith Conference",
+    content: "Young believers gather for worship and renewal."
+  }
+];
+
+const newsIndex = new Date().getDate() % newsItems.length;
+
+document.getElementById("dailyNews").innerHTML = `
+  <h3>${newsItems[newsIndex].title}</h3>
+  <p>${newsItems[newsIndex].content}</p>
+`;
+</script>
 
 </main>
 
