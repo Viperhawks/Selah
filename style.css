@@ -236,19 +236,53 @@ footer {
   font-size: 0.8rem;
   opacity: 0.6;
 }
-/* Navigation */
+/* ===== HEADER STICKY ===== */
 
-.main-nav {
-  margin-top: 15px;
+header {
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  padding: 15px 0;
+  z-index: 1000;
+  transition: 0.3s;
 }
 
+/* ===== CENTER NAVIGATION ===== */
+
+.main-nav {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* ===== NAV LINKS ===== */
+
 .main-nav a {
+  position: relative;
   text-decoration: none;
-  margin: 0 12px;
   font-weight: 500;
   color: var(--text);
   font-size: 0.95rem;
+  padding-bottom: 4px;
   transition: 0.3s;
+}
+
+/* ===== UNDERLINE ANIMATION ===== */
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
 }
 
 .main-nav a:hover {
