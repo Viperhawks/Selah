@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Selah Admin</title>
+</head>
+<body>
+
+<h2>Add News</h2>
+
+<input type="text" id="title" placeholder="Title"><br><br>
+<textarea id="content" placeholder="Content"></textarea><br><br>
+<button onclick="addNews()">Publish</button>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+
+<script>
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  function addNews() {
+    db.collection("news").add({
+      title: document.getElementById("title").value,
+      content: document.getElementById("content").value,
+      date: new Date()
+    });
+    alert("News Published!");
+  }
+</script>
+
+</body>
+</html>
