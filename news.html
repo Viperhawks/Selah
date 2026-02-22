@@ -24,29 +24,22 @@
   <div id="newsContainer"></div>
 
 <script>
-const newsItems = [
-  {
-    title: "Global Prayer Movement",
-    content: "Churches worldwide unite in prayer for revival."
-  },
-  {
-    title: "Bible Distribution Expands",
-    content: "Millions receive free Bibles in outreach programs."
-  },
-  {
-    title: "Youth Faith Conference",
-    content: "Young believers gather for worship and renewal."
-  }
-];
+fetch("/api/news")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("newsContainer");
 
-const newsIndex = new Date().getDate() % newsItems.length;
-
-document.getElementById("dailyNews").innerHTML = `
-  <h3>${newsItems[newsIndex].title}</h3>
-  <p>${newsItems[newsIndex].content}</p>
-`;
+    data.forEach(article => {
+      container.innerHTML += `
+        <div class="news-card">
+          <h3>${article.title}</h3>
+          <p>${article.description}</p>
+          <a href="${article.url}" target="_blank">Read more</a>
+        </div>
+      `;
+    });
+  });
 </script>
-
 </main>
 
 <footer>
