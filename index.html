@@ -34,8 +34,7 @@
       <span id="verseRef"></span>
     </section>
     <section class="devotional">
-  <h2>🌿 Daily Devotional</h2>
-  <div id="dailyDevotional"></div>
+  <div id="dailyDevotional" class="devotional-card"></div>
     </section>
 
     <section class="about">
@@ -55,34 +54,41 @@ const devotionals = [
   {
     title: "Trust in Him",
     verse: "Proverbs 3:5",
-    text: "Trust in the Lord with all your heart and lean not on your own understanding."
+    text: "Trust in the Lord with all your heart.",
+    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
   },
   {
     title: "Be Still",
     verse: "Psalm 46:10",
-    text: "Be still, and know that I am God."
+    text: "Be still, and know that I am God.",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
   },
   {
     title: "God is With You",
     verse: "Isaiah 41:10",
-    text: "Do not fear, for I am with you; do not be dismayed."
+    text: "Do not fear, for I am with you.",
+    image: "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d"
   },
   {
     title: "Walk in Light",
     verse: "John 8:12",
-    text: "Whoever follows me will never walk in darkness."
+    text: "Whoever follows me will never walk in darkness.",
+    image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e"
   }
 ];
 
 const today = new Date().getDate();
 const index = today % devotionals.length;
-
 const devo = devotionals[index];
 
 document.getElementById("dailyDevotional").innerHTML = `
-  <h3>${devo.title}</h3>
-  <p><em>${devo.verse}</em></p>
-  <p>${devo.text}</p>
+  <div class="devotional-bg" style="background-image: url('${devo.image}')">
+    <div class="overlay">
+      <h3>${devo.title}</h3>
+      <p><em>${devo.verse}</em></p>
+      <p>${devo.text}</p>
+    </div>
+  </div>
 `;
   </script>
 </body>
