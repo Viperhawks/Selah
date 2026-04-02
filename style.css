@@ -319,10 +319,6 @@ header.scrolled {
     text-shadow: 0 0 5px rgba(201,162,77,0.3);
   }
 }
-.news-card {
-  background: #fffaf3;
-  border: 1px solid #e6d3a3;
-}
 .devotional {
   margin: 50px auto;
   max-width: 600px;
