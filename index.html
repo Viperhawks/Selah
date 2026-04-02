@@ -50,5 +50,40 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+const devotionals = [
+  {
+    title: "Trust in Him",
+    verse: "Proverbs 3:5",
+    text: "Trust in the Lord with all your heart and lean not on your own understanding."
+  },
+  {
+    title: "Be Still",
+    verse: "Psalm 46:10",
+    text: "Be still, and know that I am God."
+  },
+  {
+    title: "God is With You",
+    verse: "Isaiah 41:10",
+    text: "Do not fear, for I am with you; do not be dismayed."
+  },
+  {
+    title: "Walk in Light",
+    verse: "John 8:12",
+    text: "Whoever follows me will never walk in darkness."
+  }
+];
+
+const today = new Date().getDate();
+const index = today % devotionals.length;
+
+const devo = devotionals[index];
+
+document.getElementById("dailyDevotional").innerHTML = `
+  <h3>${devo.title}</h3>
+  <p><em>${devo.verse}</em></p>
+  <p>${devo.text}</p>
+`;
+  </script>
 </body>
 </html>
