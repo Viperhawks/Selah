@@ -29,22 +29,26 @@ fetch("/api/news")
   .then(data => {
     const container = document.getElementById("newsContainer");
 
+    if (!data || data.length === 0) {
+      container.innerHTML = "<p>No news available.</p>";
+      return;
+    }
+
+    container.innerHTML = "";
+
     data.forEach(article => {
       container.innerHTML += `
         <div class="news-card">
-          <h3>${article.title}</h3>
-          <p>${article.description}</p>
+          <h3>${article.title || "No title"}</h3>
+          <p>${article.description || "No description"}</p>
           <a href="${article.url}" target="_blank">Read more</a>
         </div>
       `;
     });
+  })
+  .catch(err => {
+    document.getElementById("newsContainer").innerHTML =
+      "Error loading news.";
+    console.error(err);
   });
-</script>
-</main>
-
-<footer>
-  <p>© Selah • Word of God</p>
-</footer>
-
-</body>
-</html>
+        </script>
