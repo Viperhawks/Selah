@@ -38,12 +38,13 @@ fetch("/api/news")
 
     data.forEach(article => {
       container.innerHTML += `
-        <div class="news-card">
-          <h3>${article.title || "No title"}</h3>
-          <p>${article.description || "No description"}</p>
-          <a href="${article.url}" target="_blank">Read more</a>
-        </div>
-      `;
+  <div class="news-card">
+    <img src="${article.image}" style="width:100%; border-radius:10px; margin-bottom:10px;">
+    <h3>${article.title}</h3>
+    <p>${article.description}</p>
+    <a href="${article.url}" target="_blank">Read more</a>
+  </div>
+`;
     });
   })
   .catch(err => {
