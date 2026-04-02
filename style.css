@@ -323,3 +323,16 @@ header.scrolled {
   background: #fffaf3;
   border: 1px solid #e6d3a3;
 }
+.devotional {
+  margin: 50px auto;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  text-align: center;
+  background: #fffaf3;
+}
+
+.devotional h3 {
+  margin-top: 10px;
+}
