@@ -47,6 +47,23 @@
   </footer>
 
   <script src="script.js"></script>
-  <script>
+  <script><script>
+fetch("https://beta.ourmanna.com/api/v1/get/?format=json")
+  .then(res => res.json())
+  .then(data => {
+    const verse = data.verse.details.text;
+    const ref = data.verse.details.reference;
+
+    document.getElementById("verseContainer").innerHTML = `
+      <p>"${verse}"</p>
+      <small>— ${ref}</small>
+    `;
+  })
+  .catch(() => {
+    document.getElementById("verseContainer").innerHTML =
+      "Unable to load verse.";
+  });
+  </script>
+    
 </body>
 </html>
