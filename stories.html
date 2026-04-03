@@ -75,31 +75,43 @@
   <div id="storyContainer" class="story-card">Loading story...</div>
   </div>
   
-  <script>
-const stories = [
-  {
-    title: "The Creation",
-    content: "In the beginning God created the heavens and the earth. Light overcame darkness. (Genesis 1)"
-  },
-  {
-    title: "David and Goliath",
-    content: "With faith in the Lord, David defeated the giant. Faith is greater than fear. (1 Samuel 17)"
-  },
-  {
-    title: "The Good Shepherd",
-    content: "Jesus said, 'I am the good shepherd.' (John 10:11)"
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const stories = [
+    {
+      title: "The Creation",
+      verse: "Genesis 1",
+      text: "In the beginning, God created the heavens and the earth."
+    },
+    {
+      title: "David and Goliath",
+      verse: "1 Samuel 17",
+      text: "David trusted God and defeated the giant Goliath."
+    },
+    {
+      title: "The Good Shepherd",
+      verse: "John 10:11",
+      text: "Jesus said, 'I am the good shepherd.'"
+    }
+  ];
+
+  const today = new Date().getDate();
+  const index = today % stories.length;
+  const story = stories[index];
+
+  const container = document.getElementById("storyContainer");
+
+  if (container) {
+    container.innerHTML = `
+      <h2>${story.title}</h2>
+      <p><em>${story.verse}</em></p>
+      <p>${story.text}</p>
+    `;
   }
-];
 
-const today = new Date().getDate();
-const storyIndex = today % stories.length;
-
-document.getElementById("dailyStory").innerHTML = `
-  <h2>${stories[storyIndex].title}</h2>
-  <p>${stories[storyIndex].content}</p>
-`;
-  </script>
-
+});
+</script>
 </div>
 
 <footer>
