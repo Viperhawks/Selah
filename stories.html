@@ -117,6 +117,43 @@ document.addEventListener("DOMContentLoaded", function () {
 <footer>
   <p>© 2026 Selah | Be Still and Know</p>
 </footer>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const stories = [
+    {
+      title: "The Creation",
+      verse: "Genesis 1",
+      text: "In the beginning, God created the heavens and the earth."
+    },
+    {
+      title: "David and Goliath",
+      verse: "1 Samuel 17",
+      text: "David trusted God and defeated the giant Goliath."
+    },
+    {
+      title: "The Good Shepherd",
+      verse: "John 10:11",
+      text: "Jesus said, 'I am the good shepherd.'"
+    }
+  ];
+
+  const today = new Date().getDate();
+  const index = today % stories.length;
+  const story = stories[index];
+
+  const container = document.getElementById("storyContainer");
+
+  if (container) {
+    container.innerHTML = `
+      <h2>${story.title}</h2>
+      <p><em>${story.verse}</em></p>
+      <p>${story.text}</p>
+    `;
+  }
+
+});
+  </script>
 
 </body>
 </html>
