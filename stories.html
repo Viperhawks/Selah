@@ -72,10 +72,9 @@
 </header>
 
   <div class="container">
-  <div class="story" id="dailyStory"></div>
-</div>
-
-<script>
+  <div id="storyContainer" class="story-card">Loading story...</div>
+  </div>
+  <script>
 const stories = [
   {
     title: "The Creation",
@@ -98,7 +97,9 @@ document.getElementById("dailyStory").innerHTML = `
   <h2>${stories[storyIndex].title}</h2>
   <p>${stories[storyIndex].content}</p>
 `;
-</script>
+  </script>
+
+
 </div>
 
 <footer>
