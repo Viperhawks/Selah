@@ -375,3 +375,6 @@ body.dark #verseContainer {
 body.dark .verse {
   color: #f1f1f1;
 }
+body.dark #verseContainer small {
+  color: #c9a24d;
+}
