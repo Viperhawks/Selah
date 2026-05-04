@@ -340,3 +340,27 @@ header.scrolled {
   margin: 40px auto;
   text-align: center;
 }
+/* Default Light */
+body {
+  background: #fdfaf6;
+  color: #2e2e2e;
+}
+
+/* Dark Mode */
+body.dark {
+  background: #121212;
+  color: #f1f1f1;
+}
+
+/* Cards */
+body.dark .news-card,
+body.dark .story-card,
+body.dark .devotional {
+  background: #1e1e1e;
+  border-color: #444;
+}
+
+/* Links */
+body.dark a {
+  color: #c9a24d;
+}
