@@ -364,3 +364,14 @@ body.dark .devotional {
 body.dark a {
   color: #c9a24d;
 }
+/* Verse Dark Mode Fix */
+
+body.dark #verseContainer {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+body.dark .verse {
+  color: #f1f1f1;
+}
