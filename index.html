@@ -43,11 +43,7 @@
     <section class="verse-box fade-in">
       <section class="verse">
   <h2>📖 Verse of the Day</h2>
-        <h2 id="verseTitle">📖 Verse of the Day</h2>
-
-<p id="aboutText">
-  Selah is a quiet place to pause, read Scripture, and reflect on God's Word.
-</p>
+        
   <div id="verseContainer">Loading verse...</div>
       </section>
       
@@ -101,40 +97,7 @@ async function loadVerse() {
 
 loadVerse();
   </script>
-  <script>
-const translations = {
-  en: {
-    verseTitle: "📖 Verse of the Day",
-    aboutText: "Selah is a quiet place to pause, read Scripture, and reflect on God's Word."
-  },
-  ml: {
-    verseTitle: "📖 ഇന്നത്തെ വചനം",
-    aboutText: "സെലാ ഒരു ശാന്തമായ സ്ഥലം ആണ്, ദൈവവചനം വായിച്ച് ധ്യാനിക്കാൻ."
-  },
-  ta: {
-    verseTitle: "📖 இன்றைய வசனம்",
-    aboutText: "செலா என்பது அமைதியாக இருந்து தேவவார்த்தையை தியானிக்கும் இடம்."
-  }
-};
-
-const select = document.getElementById("languageSelect");
-
-// Load saved language
-const savedLang = localStorage.getItem("lang") || "en";
-select.value = savedLang;
-applyLanguage(savedLang);
-
-select.addEventListener("change", () => {
-  const lang = select.value;
-  localStorage.setItem("lang", lang);
-  applyLanguage(lang);
-});
-
-function applyLanguage(lang) {
-  document.getElementById("verseTitle").textContent = translations[lang].verseTitle;
-  document.getElementById("aboutText").textContent = translations[lang].aboutText;
-}
-</script>
+  
 
 
   
