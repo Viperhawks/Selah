@@ -404,3 +404,22 @@ body.dark #verseContainer {
   padding: 5px;
   border-radius: 6px;
 }
+.lang-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--accent);
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.lang-icon {
+  font-size: 16px;
+}
+
+#languageSelect {
+  border: none;
+  background: transparent;
+  color: inherit;
+  outline: none;
+}
