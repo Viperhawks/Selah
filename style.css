@@ -419,3 +419,49 @@ body.dark #verseContainer {
   color: inherit;
   outline: none;
 }
+.assistant-section {
+  margin: 60px auto;
+  text-align: center;
+}
+
+.assistant-box {
+  max-width: 700px;
+  margin: auto;
+  background: #fffaf3;
+  border: 1px solid #e6d3a3;
+  padding: 25px;
+  border-radius: 16px;
+}
+
+.assistant-box input {
+  width: 80%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.assistant-box button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #c9a24d;
+  color: white;
+}
+
+#assistantResponse {
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+body.dark .assistant-box {
+  background: #1e1e1e;
+  border-color: #444;
+}
+
+body.dark .assistant-box input {
+  background: #121212;
+  color: white;
+  border-color: #444;
+}
